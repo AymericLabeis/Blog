@@ -16,48 +16,30 @@
             background-color: rgb(239, 239, 239);
             color: #000;
         }
-        .col-6 img {
+        .cover img {
             width: 100%;
             object-fit: cover;
         }
-        .login {
-            width: 60%;
-            height: 50px;
-            display: flex;
-            margin: 0 auto;
-            justify-content: center;
-            align-items: center;
-        }
+        
         span {
             color: red;
         }
         @media screen and (max-width:767px) {
-            .formLog {
-                width: 90%;
-                margin: 0 auto;
-                margin-top: 15%;
-                background-color: rgba(255, 255, 255, 0.6);
-            }
-            .cover {
-                display: none;
-            }
-            body {
-                background: url(ressources/test.png) no-repeat;
-                background-size: cover;
-            }
+            
         }
     </style>
 </head>
 <body>
     <div class="container mt-3">
         <div class="row d-flex justify-content-center align-items-center ">
-            <div class="col-6">
+            <div class="col-md-6 col-ms-10 cover">
                 <img src="ressources/imgCover1.jpg" alt="">
             </div>
         </div>
+
         <div class="row d-flex justify-content-center align-items-center ">
             <!-- formulaire login -->
-            <div class="col-8 formLog justify-content-center p-5 ">
+            <div class="col-md-8 col-ms-10 justify-content-center p-3 mt-2 ">
                 <form id="loginForm">
                     <div class="mb-2">
                         <label for="inputEmail" class="form-label">Email address</label>
@@ -72,9 +54,9 @@
                         <span id="errorPassword"></span>
                     </div>
                     <div class="text-center">
-                        <a class="text-center">forget password?</a>
+                        <a class="">forget password?</a>
                     </div>
-                    <button type="submit" class="login btn btn-primary mb-2 mt-2 text-center">Login</button>
+                    <button type="submit" class="btn btn-primary d-flex justify-content-center mx-auto mt-2 w-50">Login</button>
                 </form>
             </div>
             <!-- end formulaire-->
@@ -133,7 +115,7 @@ loginForm.addEventListener('submit', (event) => {
     let access = true;
     let foundUser = null; //
 
-    // Vérification de l'email et du mot de passe
+    // Vérification de l'email 
     if (inputEmail.value === "") {
         errorEmail.textContent = "Veuillez entrer un email.";
         access = false;
