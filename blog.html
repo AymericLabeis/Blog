@@ -18,9 +18,7 @@
     .profil img {
       width: 30px;
       height: 30px;
-
     }
-
     .card {
       width: 25rem;
     }
@@ -49,7 +47,9 @@
       display: none;
     }
 
-    
+    .dt-length label{
+       display: none;
+    }
 
     @media screen and (max-width:767px) {
       .card {
@@ -166,11 +166,7 @@
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
 
-
   <script>
-
-
-
     let blogs = [
       { id: 1, type: "Technology", title: "AI in Daily Life", description: "Explore AI", photo: "ressources/techno.jpg", rate: 4.8 },
       { id: 2, type: "Travel", title: "Hidden Gems", description: "Discover Europe", photo: "ressources/travel.jpg", rate: 4.5 },
@@ -242,7 +238,7 @@
       });
     });
 
-    // Ajouter un nouvel élément au tableau et fermer la modal
+    
     document.getElementById('addBlogs').addEventListener('click', function () {
       const type = document.getElementById('addType').value;
       const title = document.getElementById('addTitle').value;
