@@ -32,14 +32,14 @@
 <body>
     <div class="container mt-3">
         <div class="row d-flex justify-content-center align-items-center ">
-            <div class="col-md-6 col-ms-10 cover">
-                <img src="ressources/imgCover1.jpg" alt="">
+            <div class="col-md-6 col-lg-6 col-12 cover">
+                <img src="ressources/loginImg.png" alt="">
             </div>
         </div>
 
         <div class="row d-flex justify-content-center align-items-center ">
             <!-- formulaire login -->
-            <div class="col-md-8 col-ms-10 justify-content-center p-3 mt-2 ">
+            <div class="col-md-8 col-lg-8 col-10 justify-content-center p-3 mt-2 ">
                 <form id="loginForm">
                     <div class="mb-2">
                         <label for="inputEmail" class="form-label">Email address</label>
@@ -53,8 +53,9 @@
                             class="form-control" required>
                         <span id="errorPassword"></span>
                     </div>
-                    <div class="text-center">
-                        <a class="">forget password?</a>
+                    <div class="text-center mt-2">
+                        <a class="form-label mt-2 d-inline-block">Forget password?</a>
+
                     </div>
                     <button type="submit" class="btn btn-primary d-flex justify-content-center mx-auto mt-2 w-50">Login</button>
                 </form>
@@ -62,48 +63,9 @@
             <!-- end formulaire-->
         </div>
     </div>
+    <script src="users.js"></script>
+    
     <script>
-    const users = [
-    {
-      id: 1,
-      username: "johndoe",
-      email: "johndoe@example.com",
-      password: "test",
-      firstName: "John",
-      lastName: "Doe",
-      profilePicture: "profile_pic_url",
-      bio: "Software developer with 5 years of experience",
-      location: "New York, USA",
-      phone: "+1234567890",
-      dateJoined: "2024-10-28",
-      roles: ["user", "admin"],
-      preferences: {
-        theme: "dark",
-        notifications: true,
-        language: "en"
-      }
-    },
-    {
-      id: 2,
-      username: "aymeric",
-      email: "aym@ay.fr",
-      password: "aym", 
-      firstName: "Jane",
-      lastName: "Doe",
-      profilePicture: "profile_pic_url",
-      bio: "Graphic designer and photographer",
-      location: "San Francisco, USA",
-      phone: "+1234567891",
-      dateJoined: "2023-11-10",
-      roles: ["user"],
-      preferences: {
-        theme: "light",
-        notifications: false,
-        language: "fr"
-      }
-    }
-];
-
 const loginForm = document.getElementById('loginForm');
 const inputEmail = document.getElementById('inputEmail');
 const inputPassword = document.getElementById('inputPassword');

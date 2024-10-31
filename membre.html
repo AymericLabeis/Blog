@@ -15,10 +15,17 @@
       height: 30px;
     }
     .membres img{
-
-max-height: 120px;
+max-width: 7rem;
     }
-    
+    @media screen and (max-width:767px) {
+      .dt-length {
+       display: none;
+    }
+    #dt-search input{
+        width: 100%;
+    }
+        } 
+          
   </style>
 </head>
 
@@ -64,7 +71,7 @@ max-height: 120px;
 
   <div class="container">
     <div class="row">
-      <div class="col mt-4">
+      <div class="col mt-2">
         <h2 class="text-center text-primary">Liste des membres</h2>
         <table id="members" class="table " style="width:100%">
           <thead>
@@ -85,23 +92,9 @@ max-height: 120px;
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
-
+<script src="members.js"></script>
   <script>
   
-    const membre = [
-      { id: 1, name: "Alice Johnson", description: "Project manager with 5 years of experience in the tech industry.",
-       profilePicture: "ressources/photo2.jpg", status: "active" },
-      { id: 2, name: "Bob Smith", description: "Senior developer specializing in backend technologies.",
-       profilePicture: "ressources/photo6.jpg", status: "inactive" },
-      { id: 3, name: "Charlie Brown", description: "Marketing expert focused on digital campaigns and social media strategies.",
-       profilePicture: "ressources/photo4.jpg", status: "active" },
-      { id: 4, name: "Diana White", description: "UI/UX designer with a passion for creating user-friendly interfaces.",
-       profilePicture: "ressources/photo3.jpg", status: "inactive" },
-      { id: 5, name: "Evan Green", description: "Data analyst with a background in statistical modeling and machine learning.",
-       profilePicture: "ressources/photo1.jpg", status: "active" },
-       
-    ];
-
     const memberList = document.getElementById("member-list");
 
     membre.forEach(member => {
