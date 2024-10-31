@@ -246,29 +246,25 @@
       const rate = parseFloat(document.getElementById('addRate').value);
       const photoInput = document.getElementById('addPhoto');
 
-      // Vérifiez si un fichier image a été sélectionné
+      
       if (photoInput.files.length > 0) {
         // Crée une URL temporaire pour le fichier image
         const photoURL = URL.createObjectURL(photoInput.files[0]);
 
-        // Ajoutez le nouveau blog au tableau avec l'URL temporaire
         blogs.push({
           id: blogs.length + 1,
           type: type,
           title: title,
           description: description,
-          photo: photoURL,  // URL temporaire pour l'image
+          photo: photoURL,  
           rate: rate
         });
+        type.value = '';
+        title.value = '';
+        description.value = '';
+        rate.value = '';
+        photoInput.value = '';
 
-        // Réinitialisez les champs du formulaire
-        document.getElementById('addType').value = '';
-        document.getElementById('addTitle').value = '';
-        document.getElementById('addDescription').value = '';
-        document.getElementById('addPhoto').value = '';
-        document.getElementById('addRate').value = '';
-
-        // Fermez la modal et mettez à jour l'affichage des blogs
         const modalElement = bootstrap.Modal.getInstance(document.getElementById('addBlogModal'));
         modalElement.hide();
 
@@ -276,6 +272,7 @@
       } else {
         alert('Veuillez sélectionner une image.');
       }
+      console.log("tableau blog après ajout",blogs)
     });
 
   </script>

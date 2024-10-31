@@ -14,7 +14,11 @@
     integrity="sha384-YvpcrYf0tY3lh-smB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <style>
-    
+    *, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
     .profil img {
       width: 30px;
       height: 30px;
@@ -30,9 +34,15 @@
     }
     
     .imgCover {
-      width: 100%;
+      width: 90%;
       size: cover;
     }
+    /*.diagramme{
+ 
+      border: 2px solid black;
+        box-shadow: 10px 10px 15px rgba(134, 167, 255, 0.3);
+        border-radius: 1rem;
+    }*/
     :root {
       --button-background-color: transparent;
       --button-text-color: #212529;
@@ -62,8 +72,9 @@
     }
     @media screen and (max-width:767px) {
         .diagramme{
-          width: 100%;
-          margin-top: 2rem;
+          width: 80%;
+         
+         
         } 
         .profil{
           display: none ;
@@ -122,20 +133,20 @@
         <h2 class="text-center text-primary p-1">About Our Blog!</h2>
         <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, adipisci totam odio libero excepturi, aspernatur dignissimos architecto ipsam ut temporibus modi at! Ab eius dicta aspernatur officiis cum accusantium aperiam.</p>
         <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, adipisci totam odio libero excepturi, aspernatur dignissimos architecto ipsam ut temporibus modi at! Ab eius dicta aspernatur officiis cum accusantium aperiam.</p>
-        <button class="btn  btn-success mt-2 w-md-25 w-ms-50" >View More <i class="fa-solid fa-arrow-right"></i></button>
+        <button class="btn btn-success mt-2 w-md-25 w-ms-50" >View More <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
 
-  <div class="container-fluid mt-md-3 ">
+  <div class="container-fluid mt-md-5 ">
     <div class="row">
-      <div class="col-md-4 diagramme">
-        <div id="myChart"></div>
-      
+      <div class="col-md-4 mx-auto mt-3 diagramme d-flex justify-content-center align-items-center "> 
+          <div class="border" id="myChart"></div>
       </div>
-      <div class="col-md-4 diagramme">
-        <div id="myChartBarre"></div>
-        
+      <div class="col-md-4 mx-auto mt-3 diagramme d-flex justify-content-center align-items-center">
+       
+          <div class="border" id="myChartBarre"></div>
+       
       </div>
       <div class="col-md-4 text-center">
         <h2>Chat Bot</h2>
@@ -143,10 +154,10 @@
     </div>
   </div>
 
-  <div class="container mt-2">
+  <div class="container-fluid mt-5  bg-body-tertiary">
     <div class="row">
       <div class="col">
-        <p>© Conception et réalisation par Aymeric Labeis, Touts droits réservés</p> 
+        <p class="p-2">© Conception et réalisation par Aymeric Labeis, Touts droits réservés</p> 
       </div>
     </div>
   </div>
