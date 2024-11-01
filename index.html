@@ -126,10 +126,14 @@
       align-items: flex-end;
       color: #2a343e;
     }
+    .fa-robot {
+      font-size: 5rem;
+     
+    }
     #textBot {
      font-size: 1rem;
       top: 20%;
-      left: 10%;
+      left: 5%;
      
     }
     }
@@ -137,48 +141,48 @@
 </head>
 
 <body>
-  <div class="container-fluid ">
-    <div class="row">
-      <div class="col">
-        <header>
-          <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./blog.html">Blog</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./membre.html">Membres</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./aboutUs.html">About Us</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <div class="profil d-flex justify-content-center align-items-center border border-success">
-                    <a href="./login.html"><img class="mx-2" src="ressources/user_img.jpg" alt=""></a>
-                    <i class="fa-regular fa-bell fs-4 mx-2"></i>
-                  </div>
-                </form>
+  <header>
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./membre.html">Membres</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./aboutUs.html">About Us</a>
+                    </li>
+                  </ul>
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <div class="profil d-flex justify-content-center align-items-center">
+                      <a href="./login.html"><img class="mx-2" src="ressources/user_img.jpg" alt=""></a>
+                      <i class="fa-regular fa-bell fs-4 mx-2"></i>
+                    </div>
+                  </form>
+                </div>
               </div>
-            </div>
-          </nav>
-        </header>
+            </nav>
+        </div>
       </div>
     </div>
-  </div>
-
+  </header>
+ 
   <div class="container-fluid my-md-3 ">
     <div class="row p-1">
       <div class="col-md-4 col-ms-12 d-flex justify-content-center align-items-center">
@@ -208,12 +212,13 @@
 
       </div>
       <div class="col-md-4 robot-container mt-3">
-        <i class="fa fa-robot m-3" id="chatBot"></i>
+        <a href="chatBot.html"><i class="fa fa-robot m-3" id="chatBot"></i></a>
         <span class="text-center" id="textBot"></span>
       </div>
     </div>
   </div>
-
+  
+<footer>
   <div class="container-fluid mt-5  bg-body-tertiary">
     <div class="row">
       <div class="col">
@@ -221,6 +226,8 @@
       </div>
     </div>
   </div>
+</footer>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/ag-charts-community@10.3.1/dist/umd/ag-charts-community.js"></script>
   <script src="members.js"></script>
