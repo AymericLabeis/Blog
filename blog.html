@@ -150,8 +150,8 @@
         </div>
         <div class="modal-body">
           <div class="d-flex justify-content-between inputSelect">
-            <input type="text" id="addTitle" class="form-control  " placeholder="Titre">
-            <select class="form-control" name="" id="addType">
+            <input type="text" id="addTitle" class="form-control " placeholder="Titre" minlength="2" maxlength="50" required>
+            <select class="form-control" name="" id="addType" required>
               <option value="Finance">Finance</option>
               <option value="Health and Wellness">Health and Wellness</option>
               <option value="Lifestyle">Lifestyle</option>
@@ -159,10 +159,9 @@
               <option value="Travel">Travel</option>
             </select>
           </div>
-
-          <textarea id="addDescription" class="form-control mt-2" rows="4" placeholder="Description"></textarea>
-          <input type="file" id="addPhoto" class="form-control mt-2" placeholder="Photo">
-          <input type="number" id="addRate" min="0" max="5" class="form-control mt-2" placeholder="Note">
+          <textarea id="addDescription" class="form-control mt-2" rows="4" placeholder="Description" minlength="5" maxlength="1000" required></textarea>
+          <input type="file" id="addPhoto" class="form-control mt-2" placeholder="Photo" required>
+          <input type="number" id="addRate" min="0" max="5" class="form-control mt-2" placeholder="Note" required>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
@@ -178,105 +177,110 @@
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
   <script src="blogs.js"></script>
   <script>
-    const blogList = document.getElementById("blogList");
+   const blogList = document.getElementById("blogList");
 
-    function renderBlogs() {
-      blogList.innerHTML = ''; 
+function renderBlogs() {
+  blogList.innerHTML = ''; 
 
-      blogs.forEach(blog => {
-        const newBlog = document.createElement("tr");
+  blogs.forEach(blog => {
+    const newBlog = document.createElement("tr");
+    const fullStars = Math.floor(blog.rate);
+    const halfStar = blog.rate % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStar;
 
-        // Convertir la note en étoiles pleines, demi-étoiles et étoiles vides
-        const fullStars = Math.floor(blog.rate);
-        const halfStar = blog.rate % 1 >= 0.5 ? 1 : 0;
-        const emptyStars = 5 - fullStars - halfStar;
-
-       
-        let stars = '';
-        for (let i = 0; i < fullStars; i++) {
-          stars += '<i class="fas fa-star"></i>'; 
-        }
-        if (halfStar) {
-          stars += '<i class="fas fa-star-half-alt"></i>'; 
-        }
-        for (let i = 0; i < emptyStars; i++) {
-          stars += '<i class="far fa-star" style="color: lightgray;"></i>';  
-        }
-
-        newBlog.innerHTML = `
-              <td class="d-flex justify-content-center">
-                    <div class="card text-center m-2 ">
-                      <div class="card-header">
-                          <h3>${blog.type}</h3>
-                      </div>
-                      <div class="card-body">
-                          <a class="text-center">${blog.title}</a>
-                          <p class="card-text">${blog.description}</p> 
-                      </div>
-                      <img src="${blog.photo}" class="card-img-top" alt="...">
-                      <div class="rating">${stars}</div>
-                  </div>
-              </td>
-          `;
-        blogList.appendChild(newBlog);
-      });
+    // Créer les étoiles pour l'affichage de la note
+    let stars = '';
+    for (let i = 0; i < fullStars; i++) {
+      stars += '<i class="fas fa-star"></i>'; 
+    }
+    if (halfStar) {
+      stars += '<i class="fas fa-star-half-alt"></i>'; 
+    }
+    for (let i = 0; i < emptyStars; i++) {
+      stars += '<i class="far fa-star" style="color: lightgray;"></i>';  
     }
 
-    renderBlogs();
+    newBlog.innerHTML = `
+      <td class="d-flex justify-content-center">
+        <div class="card text-center m-2 ">
+          <div class="card-header">
+            <h3>${blog.type}</h3>
+          </div>
+          <div class="card-body">
+            <a class="text-center">${blog.title}</a>
+            <p class="card-text">${blog.description}</p> 
+          </div>
+          <img src="${blog.photo}" class="card-img-top" alt="...">
+          <div class="rating">${stars}</div>
+        </div>
+      </td>
+    `;
+    blogList.appendChild(newBlog);
+  });
+}
 
-    new DataTable('#blog', {
-      responsive: true,
-      paging: true,
-      searching: false,
-      lengthChange: false
-    });
+new DataTable('#blog', {
+  responsive: true,
+  paging: true,
+  searching: false,
+  lengthChange: false
+});
 
-    document.getElementById('searchInput').addEventListener('keyup', function () {
-      const filter = this.value.toLowerCase();
-      const rows = document.querySelectorAll('#blogList tr');
-      rows.forEach(row => {
-        const cells = row.querySelectorAll('td');
-        const match = Array.from(cells).some(cell => cell.innerText.toLowerCase().includes(filter));
-        row.style.display = match ? '' : 'none';
-      });
-    });
+// Fonction de recherche dans le tableau
+document.getElementById('searchInput').addEventListener('keyup', function () {
+  const filter = this.value.toLowerCase();
+  const rows = document.querySelectorAll('#blogList tr');
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('td');
+    const match = Array.from(cells).some(cell => cell.innerText.toLowerCase().includes(filter));
+    row.style.display = match ? '' : 'none';
+  });
+});
 
-    
-    document.getElementById('addBlogs').addEventListener('click', function () {
-      const type = document.getElementById('addType').value;
-      const title = document.getElementById('addTitle').value;
-      const description = document.getElementById('addDescription').value;
-      const rate = parseFloat(document.getElementById('addRate').value);
-      const photoInput = document.getElementById('addPhoto');
+// Gestion de l'ajout de blog 
+document.getElementById('addBlogs').addEventListener('click', function () {
+  const type = document.getElementById('addType').value;
+  const title = document.getElementById('addTitle').value.trim();
+  const description = document.getElementById('addDescription').value.trim();
+  const rate = parseFloat(document.getElementById('addRate').value);
+  const photoInput = document.getElementById('addPhoto');
+  
+  if (!type || !title || !description || !photoInput.files.length || isNaN(rate) || rate < 0 || rate > 5) {
+    alert('Veuillez remplir tous les champs');
+    return;
+  }
 
-      
-      if (photoInput.files.length > 0) {
-        // Crée une URL temporaire pour le fichier image
-        const photoURL = URL.createObjectURL(photoInput.files[0]);
+  const isDuplicate = blogs.some(blog => blog.title.toLowerCase() === title.toLowerCase());
+  if (isDuplicate) {
+    alert('Un blog avec ce titre existe déjà. Veuillez choisir un titre différent.');
+    return;
+  }
 
-        blogs.push({
-          id: blogs.length + 1,
-          type: type,
-          title: title,
-          description: description,
-          photo: photoURL,  
-          rate: rate
-        });
-        type.value = '';
-        title.value = '';
-        description.value = '';
-        rate.value = '';
-        photoInput.value = '';
+  // Crée une URL temporaire pour le fichier image
+  const photoURL = URL.createObjectURL(photoInput.files[0]);
 
-        const modalElement = bootstrap.Modal.getInstance(document.getElementById('addBlogModal'));
-        modalElement.hide();
+  blogs.push({
+    id: blogs.length + 1,
+    type,
+    title,
+    description,
+    photo: photoURL,
+    rate
+  });
 
-        renderBlogs();
-      } else {
-        alert('Veuillez sélectionner une image.');
-      }
-      console.log("tableau blog après ajout",blogs)
-    });
+  document.getElementById('addType').value = 'Finance';
+  document.getElementById('addTitle').value = '';
+  document.getElementById('addDescription').value = '';
+  document.getElementById('addRate').value = '';
+  photoInput.value = '';
+
+  const modalElement = bootstrap.Modal.getInstance(document.getElementById('addBlogModal'));
+  modalElement.hide();
+  renderBlogs();
+});
+
+
+renderBlogs();
 
   </script>
 

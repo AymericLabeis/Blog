@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Box Shadow Colorée</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Ombre bleue légère */
+        .shadow-blue {
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Utilise un bleu clair */
+        }
+
+        /* Ombre rouge intense */
+        .shadow-red {
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5); /* Rouge intense avec une transparence */
+        }
+
+        /* Ombre verte foncée */
+        .shadow-green {
+            box-shadow: 0 4px 8px rgba(0, 128, 0, 0.4); /* Vert foncé */
+        }
+    </style>
 </head>
-<body>
-    <h1>hello</h1>
+<body class="p-5">
+
+    <div class="card shadow-blue p-3 mb-5 bg-body rounded">
+        <h5 class="card-title">Ombre Bleue</h5>
+        <p class="card-text">Ceci est une ombre bleue personnalisée.</p>
+    </div>
+
+    <div class="card shadow-red p-3 mb-5 bg-body rounded">
+        <h5 class="card-title">Ombre Rouge</h5>
+        <p class="card-text">Ceci est une ombre rouge personnalisée.</p>
+    </div>
+
+    <div class="card shadow-green p-3 mb-5 bg-body rounded">
+        <h5 class="card-title">Ombre Verte</h5>
+        <p class="card-text">Ceci est une ombre verte personnalisée.</p>
+    </div>
+
 </body>
 </html>

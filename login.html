@@ -13,14 +13,19 @@
         crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: rgb(239, 239, 239);
-            color: #000;
+            background-color: aliceblue;
+
         }
         .cover img {
             width: 100%;
             object-fit: cover;
+            border-radius: 1rem;
         }
-        
+        .shadow{
+            border: 2px solid rgba(53, 26, 42, 0.3);
+            box-shadow: 0 4px 8px rgba(165, 11, 139, 0.3);
+            border-radius: 1rem;
+        }
         span {
             color: red;
         }
@@ -39,8 +44,8 @@
 
         <div class="row d-flex justify-content-center align-items-center ">
             <!-- formulaire login -->
-            <div class="col-md-8 col-lg-8 col-10 justify-content-center p-3 mt-2">
-                <form id="loginForm ">
+            <div class="col-md-8 col-lg-8 col-10 justify-content-center p-3 mt-3 bg-body shadow">
+                <form id="loginForm">
                     <div class="mb-2 ">
                         <label for="inputEmail" class="form-label">Email address</label>
                         <input id="inputEmail" minlength="5" maxlength="50" type="email" placeholder="enter your e-mail"
@@ -66,6 +71,8 @@
     <script src="users.js"></script>
     
     <script>
+      
+
 const loginForm = document.getElementById('loginForm');
 const inputEmail = document.getElementById('inputEmail');
 const inputPassword = document.getElementById('inputPassword');
