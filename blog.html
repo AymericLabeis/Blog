@@ -15,7 +15,7 @@
     integrity="sha384-YvpcrYf0tY3lh-smB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <style>
-   .profil img {
+    .profil img {
       width: 30px;
       height: 30px;
       border-radius: 50%;
@@ -30,6 +30,7 @@
       color: red;
       cursor: pointer;
     }
+
     .card {
       width: 25rem;
     }
@@ -58,8 +59,8 @@
       display: none;
     }
 
-    .dt-length label{
-       display: none;
+    .dt-length label {
+      display: none;
     }
 
     @media screen and (max-width:767px) {
@@ -80,39 +81,39 @@
     <div class="container-fluid ">
       <div class="row">
         <div class="col">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-              <div class="container-fluid">
-                <a class="navbar-brand" href="#"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link " aria-current="page" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="./blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="./membre.html">Membres</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="./aboutUs.html">About Us</a>
-                    </li>
-                  </ul>
-                  <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <div class="profil d-flex justify-content-center align-items-center">
-                      <a href="./login.html"><img class="mx-2" src="ressources/user_img.jpg" alt=""></a>
-                      <i class="fa-regular fa-bell fs-4 mx-2"></i>
-                    </div>
-                  </form>
-                </div>
+          <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="./index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="./blog.html">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./membre.html">Membres</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./aboutUs.html">About Us</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <div class="profil d-flex justify-content-center align-items-center">
+                    <a href="./login.html"><img class="mx-2" src="ressources/user_img.jpg" alt=""></a>
+                    <i class="fa-regular fa-bell fs-4 mx-2"></i>
+                  </div>
+                </form>
               </div>
-            </nav>
+            </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -130,11 +131,9 @@
           <thead>
             <tr>
               <th>Blog</th>
-
             </tr>
           </thead>
           <tbody id="blogList">
-
           </tbody>
         </table>
       </div>
@@ -150,7 +149,8 @@
         </div>
         <div class="modal-body">
           <div class="d-flex justify-content-between inputSelect">
-            <input type="text" id="addTitle" class="form-control " placeholder="Titre" minlength="2" maxlength="50" required>
+            <input type="text" id="addTitle" class="form-control " placeholder="Titre" minlength="2" maxlength="50"
+              required>
             <select class="form-control" name="" id="addType" required>
               <option value="Finance">Finance</option>
               <option value="Health and Wellness">Health and Wellness</option>
@@ -159,7 +159,8 @@
               <option value="Travel">Travel</option>
             </select>
           </div>
-          <textarea id="addDescription" class="form-control mt-2" rows="4" placeholder="Description" minlength="5" maxlength="1000" required></textarea>
+          <textarea id="addDescription" class="form-control mt-2" rows="4" placeholder="Description" minlength="5"
+            maxlength="1000" required></textarea>
           <input type="file" id="addPhoto" class="form-control mt-2" placeholder="Photo" required>
           <input type="number" id="addRate" min="0" max="5" class="form-control mt-2" placeholder="Note" required>
         </div>
@@ -177,30 +178,31 @@
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
   <script src="blogs.js"></script>
   <script>
-   const blogList = document.getElementById("blogList");
+    const blogList = document.getElementById("blogList");
+    const search = document.getElementById('searchInput')
+    const addBlogs = document.getElementById('addBlogs')
 
-function renderBlogs() {
-  blogList.innerHTML = ''; 
+    function createBlog() {
+      blogList.innerHTML = '';
 
-  blogs.forEach(blog => {
-    const newBlog = document.createElement("tr");
-    const fullStars = Math.floor(blog.rate);
-    const halfStar = blog.rate % 1 >= 0.5 ? 1 : 0;
-    const emptyStars = 5 - fullStars - halfStar;
+      blogs.forEach(blog => {
+        const newBlog = document.createElement("tr");
+        const fullStars = Math.floor(blog.rate);
+        const halfStar = blog.rate % 1 >= 0.5 ? 1 : 0;
+        const emptyStars = 5 - fullStars - halfStar;
 
-    // Créer les étoiles pour l'affichage de la note
-    let stars = '';
-    for (let i = 0; i < fullStars; i++) {
-      stars += '<i class="fas fa-star"></i>'; 
-    }
-    if (halfStar) {
-      stars += '<i class="fas fa-star-half-alt"></i>'; 
-    }
-    for (let i = 0; i < emptyStars; i++) {
-      stars += '<i class="far fa-star" style="color: lightgray;"></i>';  
-    }
+        let stars = '';
+        for (let i = 0; i < fullStars; i++) {
+          stars += '<i class="fas fa-star"></i>';
+        }
+        if (halfStar) {
+          stars += '<i class="fas fa-star-half-alt"></i>';
+        }
+        for (let i = 0; i < emptyStars; i++) {
+          stars += '<i class="far fa-star" style="color: lightgray;"></i>';
+        }
 
-    newBlog.innerHTML = `
+        newBlog.innerHTML = `
       <td class="d-flex justify-content-center">
         <div class="card text-center m-2 ">
           <div class="card-header">
@@ -215,73 +217,74 @@ function renderBlogs() {
         </div>
       </td>
     `;
-    blogList.appendChild(newBlog);
-  });
-}
+        blogList.appendChild(newBlog);
+      });
+    }
+
+    // Fonction de recherche dans le tableau
+    search.addEventListener('keyup', function () {
+      const filter = this.value.toLowerCase();
+      const rows = document.querySelectorAll('#blogList tr');
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const match = Array.from(cells).some(cell => cell.innerText.toLowerCase().includes(filter));
+        row.style.display = match ? '' : 'none';
+      });
+    });
+
+    // Gestion de l'ajout de blog 
+    addBlogs.addEventListener('click', function () {
+      const type = document.getElementById('addType').value;
+      const title = document.getElementById('addTitle').value.trim();
+      const description = document.getElementById('addDescription').value.trim();
+      const rate = parseFloat(document.getElementById('addRate').value);
+      const photoInput = document.getElementById('addPhoto');
+
+      if (!type || !title || !description || !photoInput.files.length || isNaN(rate)) {
+        alert('Veuillez remplir tous les champs');
+        return;
+      }
+
+      const isDuplicate = blogs.some(blog => blog.title.toLowerCase() === title.toLowerCase());
+      if (isDuplicate) {
+        alert('Un blog avec ce titre existe déjà. Veuillez choisir un titre différent.');
+        return;
+      }
+
+      // Crée une URL temporaire pour le fichier image
+      const photoURL = URL.createObjectURL(photoInput.files[0]);
+
+      blogs.push({
+        id: blogs.length + 1,
+        type,
+        title,
+        description,
+        photo: photoURL,
+        rate
+      });
+      console.log('new blog table', blogs)
+
+      document.getElementById('addType').value = 'Finance';
+      document.getElementById('addTitle').value = '';
+      document.getElementById('addDescription').value = '';
+      document.getElementById('addRate').value = '';
+      photoInput.value = '';
+
+      const modalElement = bootstrap.Modal.getInstance(document.getElementById('addBlogModal'));
+      modalElement.hide();
+      createBlog();
+    });
+
+    createBlog();
+
+    new DataTable('#blog', {
+      responsive: true,
+      paging: true,
+      searching: false,
+      lengthChange: false
+    });
 
 
-
-// Fonction de recherche dans le tableau
-document.getElementById('searchInput').addEventListener('keyup', function () {
-  const filter = this.value.toLowerCase();
-  const rows = document.querySelectorAll('#blogList tr');
-  rows.forEach(row => {
-    const cells = row.querySelectorAll('td');
-    const match = Array.from(cells).some(cell => cell.innerText.toLowerCase().includes(filter));
-    row.style.display = match ? '' : 'none';
-  });
-});
-
-// Gestion de l'ajout de blog 
-document.getElementById('addBlogs').addEventListener('click', function () {
-  const type = document.getElementById('addType').value;
-  const title = document.getElementById('addTitle').value.trim();
-  const description = document.getElementById('addDescription').value.trim();
-  const rate = parseFloat(document.getElementById('addRate').value);
-  const photoInput = document.getElementById('addPhoto');
-  
-  if (!type || !title || !description || !photoInput.files.length || isNaN(rate) || rate < 0 || rate > 5) {
-    alert('Veuillez remplir tous les champs');
-    return;
-  }
-
-  const isDuplicate = blogs.some(blog => blog.title.toLowerCase() === title.toLowerCase());
-  if (isDuplicate) {
-    alert('Un blog avec ce titre existe déjà. Veuillez choisir un titre différent.');
-    return;
-  }
-
-  // Crée une URL temporaire pour le fichier image
-  const photoURL = URL.createObjectURL(photoInput.files[0]);
-
-  blogs.push({
-    id: blogs.length + 1,
-    type,
-    title,
-    description,
-    photo: photoURL,
-    rate
-  });
-
-  document.getElementById('addType').value = 'Finance';
-  document.getElementById('addTitle').value = '';
-  document.getElementById('addDescription').value = '';
-  document.getElementById('addRate').value = '';
-  photoInput.value = '';
-
-  const modalElement = bootstrap.Modal.getInstance(document.getElementById('addBlogModal'));
-  modalElement.hide();
-  renderBlogs();
-});
-
-renderBlogs();
-
-new DataTable('#blog', {
-  responsive: true,
-  paging: true,
-  searching: false,
-  lengthChange: false
-});
   </script>
 
 </body>
