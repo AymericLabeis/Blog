@@ -14,35 +14,75 @@
     integrity="sha384-YvpcrYf0tY3lh-smB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <style>
-    *, ::before, ::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     .profil img {
       width: 30px;
       height: 30px;
       border-radius: 50%;
       opacity: 60%;
     }
-    .profil img:hover { 
+
+    .profil img:hover {
       opacity: 100%;
     }
-   .profil i:hover{
+
+    .profil i:hover {
       color: red;
       cursor: pointer;
     }
-    
+
     .imgCover {
       width: 90%;
       size: cover;
     }
-    /*.diagramme{
- 
-      border: 2px solid black;
-        box-shadow: 10px 10px 15px rgba(134, 167, 255, 0.3);
-        border-radius: 1rem;
-    }*/
+
+    .robot-container {
+      position: relative;
+      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fa-robot {
+      font-size: 8rem;
+      color: rgb(100, 100, 100);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .fa-robot:hover {
+      color: rgb(0, 0, 0);
+      transform: rotate(360deg) scale(1.2);
+    }
+
+    #textBot {
+      display: none;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      color: #333;
+      font-size: 1.5rem;
+      font-weight: bold;
+      
+      padding: 0.5rem;
+      border: 2px solid grey;
+      border-radius: 1rem;
+    }
+
+   
+    #chatBot:hover {
+      color: rgb(0, 0, 0);
+      transform: rotate(360deg) scale(1.2);
+    }
+
+    
     :root {
       --button-background-color: transparent;
       --button-text-color: #212529;
@@ -70,16 +110,29 @@
       background: #192232;
       color: white;
     }
+
     @media screen and (max-width:767px) {
-        .diagramme{
-          width: 80%;
-         
-         
-        } 
-        .profil{
-          display: none ;
-        } 
-          }
+      .diagramme {
+        width: 80%;
+
+
+      }
+
+      .profil {
+        display: none;
+      }
+      .robot-container {
+      justify-content: flex-end;
+      align-items: flex-end;
+      color: #2a343e;
+    }
+    #textBot {
+     font-size: 1rem;
+      top: 20%;
+      left: 10%;
+     
+    }
+    }
   </style>
 </head>
 
@@ -91,7 +144,9 @@
           <nav class="navbar navbar-expand-lg bg-body-tertiary ">
             <div class="container-fluid">
               <a class="navbar-brand" href="#"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -131,25 +186,30 @@
       </div>
       <div class="col-md-8 col-ms-12  d-flex flex-column justify-content-center align-items-center ">
         <h2 class="text-center text-primary p-1">About Our Blog!</h2>
-        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, adipisci totam odio libero excepturi, aspernatur dignissimos architecto ipsam ut temporibus modi at! Ab eius dicta aspernatur officiis cum accusantium aperiam.</p>
-        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, adipisci totam odio libero excepturi, aspernatur dignissimos architecto ipsam ut temporibus modi at! Ab eius dicta aspernatur officiis cum accusantium aperiam.</p>
-        <button class="btn btn-success mt-2 w-md-25 w-ms-50" >View More <i class="fa-solid fa-arrow-right"></i></button>
+        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, adipisci totam odio libero
+          excepturi, aspernatur dignissimos architecto ipsam ut temporibus modi at! Ab eius dicta aspernatur officiis
+          cum accusantium aperiam.</p>
+        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, adipisci totam odio libero
+          excepturi, aspernatur dignissimos architecto ipsam ut temporibus modi at! Ab eius dicta aspernatur officiis
+          cum accusantium aperiam.</p>
+        <button class="btn btn-success mt-2 w-md-25 w-ms-50">View More <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
 
-  <div class="container-fluid mt-md-5 ">
+  <div class="container-fluid mt-md-5 mt-4">
     <div class="row">
-      <div class="col-md-4 mx-auto mt-3 diagramme d-flex justify-content-center align-items-center "> 
-          <div class="border" id="myChart"></div>
+      <div class="col-md-4 mx-auto mt-3 diagramme d-flex justify-content-center align-items-center ">
+        <div class="border" id="myChart"></div>
       </div>
       <div class="col-md-4 mx-auto mt-3 diagramme d-flex justify-content-center align-items-center">
-       
-          <div class="border" id="myChartBarre"></div>
-       
+
+        <div class="border" id="myChartBarre"></div>
+
       </div>
-      <div class="col-md-4 text-center">
-        <h2>Chat Bot</h2>
+      <div class="col-md-4 robot-container mt-3">
+        <i class="fa fa-robot m-3" id="chatBot"></i>
+        <span class="text-center" id="textBot"></span>
       </div>
     </div>
   </div>
@@ -157,15 +217,15 @@
   <div class="container-fluid mt-5  bg-body-tertiary">
     <div class="row">
       <div class="col">
-        <p class="p-2">© Conception et réalisation par Aymeric Labeis, Touts droits réservés</p> 
+        <p class="p-2">© Conception et réalisation par Aymeric Labeis, Touts droits réservés</p>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/ag-charts-community@10.3.1/dist/umd/ag-charts-community.js"></script>
   <script src="members.js"></script>
+  <script src="blogs.js"></script>
   <script>
-   
     function getMemberData() {
       let activeCount = 0;
       let inactiveCount = 0;
@@ -205,13 +265,6 @@
   </script>
 
   <script>
-    const blogs = [
-      { id: 1, type: "Technology", title: "The Future of AI in Everyday Life", description: "An in-depth look at how artificial intelligence is reshaping the world around us, from healthcare to transportation.", photo: "ressources/techno.jpg", rate: 4.8 },
-      { id: 2, type: "Travel", title: "Top 10 Hidden Gems in Europe", description: "Discover the most beautiful, lesser-known destinations across Europe that you must visit.", photo: "ressources/travel.jpg", rate: 4.5 },
-      { id: 3, type: "Health & Wellness", title: "5 Simple Ways to Boost Your Mental Health", description: "Tips and techniques to improve your mental well-being and reduce stress in daily life.", photo: "ressources/health.jpg", rate: 4.7 },
-      { id: 4, type: "Finance", title: "Beginner's Guide to Investing", description: "Learn the basics of investing, including key concepts and how to start building a portfolio.", photo: "ressources/finance.jpg", rate: 4.6 },
-      { id: 5, type: "Lifestyle", title: "How to Create a Minimalist Home", description: "Explore the principles of minimalist design and how to declutter your space for a simpler life.", photo: "ressources/lifestyle.jpg", rate: 4.9 },
-    ];
 
     function getBlogData() {
       const typeCount = {};
@@ -241,13 +294,27 @@
     };
 
     AgCharts.create(blogChartOptions);
+
+    //chatBot
+    const chatBot = document.getElementById('chatBot');
+    const textBot = document.getElementById('textBot');
+
+    chatBot.addEventListener('mouseover', () => {
+      textBot.style.display = 'block';
+      textBot.innerHTML = "Hello! How can I assist you today?";
+    });
+
+    chatBot.addEventListener('mouseout', () => {
+      textBot.style.display = 'none';
+    });
   </script>
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
- integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
- crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
- integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
- crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
 
 </body>
 

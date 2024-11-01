@@ -165,20 +165,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
-
+  <script src="blogs.js"></script>
   <script>
-    let blogs = [
-      { id: 1, type: "Technology", title: "AI in Daily Life", description: "Explore AI", photo: "ressources/techno.jpg", rate: 4.8 },
-      { id: 2, type: "Travel", title: "Hidden Gems", description: "Discover Europe", photo: "ressources/travel.jpg", rate: 4.5 },
-      { id: 3, type: "Health & Wellness", title: "5 Simple Ways to Boost Your Mental Health", description: "Tips and techniques to improve your mental well-being and reduce stress in daily life.", photo: "ressources/health.jpg", rate: 4.7 },
-      { id: 4, type: "Finance", title: "Beginner's Guide to Investing", description: "Learn the basics of investing, including key concepts and how to start building a portfolio.", photo: "ressources/finance.jpg", rate: 4.6 },
-      { id: 5, type: "Lifestyle", title: "How to Create a Minimalist Home", description: "Explore the principles of minimalist design and how to declutter your space for a simpler life.", photo: "ressources/lifestyle.jpg", rate: 4.9 }
-    ];
-
     const blogList = document.getElementById("blogList");
 
     function renderBlogs() {
-      blogList.innerHTML = '';  // Clear existing blogs
+      blogList.innerHTML = ''; 
 
       blogs.forEach(blog => {
         const newBlog = document.createElement("tr");
@@ -188,16 +180,16 @@
         const halfStar = blog.rate % 1 >= 0.5 ? 1 : 0;
         const emptyStars = 5 - fullStars - halfStar;
 
-        // Construire les étoiles dynamiquement
+       
         let stars = '';
         for (let i = 0; i < fullStars; i++) {
-          stars += '<i class="fas fa-star"></i>';  // Étoile pleine
+          stars += '<i class="fas fa-star"></i>'; 
         }
         if (halfStar) {
-          stars += '<i class="fas fa-star-half-alt"></i>';  // Demi-étoile
+          stars += '<i class="fas fa-star-half-alt"></i>'; 
         }
         for (let i = 0; i < emptyStars; i++) {
-          stars += '<i class="far fa-star" style="color: lightgray;"></i>';  // Étoile vide
+          stars += '<i class="far fa-star" style="color: lightgray;"></i>';  
         }
 
         newBlog.innerHTML = `
