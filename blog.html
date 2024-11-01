@@ -219,12 +219,7 @@ function renderBlogs() {
   });
 }
 
-new DataTable('#blog', {
-  responsive: true,
-  paging: true,
-  searching: false,
-  lengthChange: false
-});
+
 
 // Fonction de recherche dans le tableau
 document.getElementById('searchInput').addEventListener('keyup', function () {
@@ -279,9 +274,14 @@ document.getElementById('addBlogs').addEventListener('click', function () {
   renderBlogs();
 });
 
-
 renderBlogs();
 
+new DataTable('#blog', {
+  responsive: true,
+  paging: true,
+  searching: false,
+  lengthChange: false
+});
   </script>
 
 </body>

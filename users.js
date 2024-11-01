@@ -21,7 +21,7 @@ const users = [
   {
     id: 2,
     username: "aymeric",
-    email: "aym@ay.fr",
+    email: "ay@ay.fr",
     password: "aym", 
     firstName: "Jane",
     lastName: "Doe",
